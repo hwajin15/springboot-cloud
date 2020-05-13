@@ -1,0 +1,35 @@
+server:
+  port: 8888
+
+
+spring:
+  application:
+    name: users-ws
+
+  devtools:
+    restart:
+      enabled: true
+  h2:
+    console:
+      enabled: true
+      settings:
+        web-allow-others: true
+      #http://localhost:0000/h2-console
+
+  datasource:
+    url: jdbc:h2:mem:testdb
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8010/eureka
+
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+
+gateway:
+  ip: 59.29.224.167
+
+token:
+  expiration_time: 864000000
+  secret: local_specret
