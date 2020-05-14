@@ -6,6 +6,7 @@ import com.example.myappapiusers.service.UserService;
 import com.example.myappapiusers.shared.UserDto;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.core.env.Environment;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -20,6 +21,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
@@ -64,10 +66,15 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
         //generate token with userId(email)
         //token expire_date (configuration or application.yml
         String token = Jwts.builder()
-
+                .setSubject(userDetail.getUserId())
+                .setExpiration(new Date(System.currentTimeMillis()
+                        //expiration_time -> YML 파일에서 가져옴 10일에 해당하는
+                +Long.parseLong(env.getProperty("token.expiration_time"))))
+                .signWith(SignatureAlgorithm.HS512, env.getProperty("token.secret"))
                 .compact();
     res.addHeader("token",token);
     res.addHeader("userId", userDetail.getUserId());
+
     }
 
 }

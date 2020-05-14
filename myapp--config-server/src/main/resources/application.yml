@@ -12,3 +12,13 @@ spring:
           username: hwajin15
           password: ckdals0218!
           clone-on-start: true
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: admin
+    password: admin
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh

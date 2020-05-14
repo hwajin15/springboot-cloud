@@ -35,6 +35,3 @@ authorization:
       name: Authorization
       prefix: Bearer
 
-token:
-  expiration_time: 8640000
-  secret: jsh

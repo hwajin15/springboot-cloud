@@ -31,15 +31,10 @@ public class UsersController  {
 
     @GetMapping("/status/check")
     public String status(){
-        return String.format("working on port %s",
-                env.getProperty("local.server.port"));
+        return String.format("working on port %s, secret=%s",
+                env.getProperty("local.server.port"),
+                env.getProperty("token.secret"));
     }
-
-//    //사용자 추가 api
-//    @PostMapping
-//    public UserEntity createUser(@RequestBody UserEntity user){
-//
-//        return userRepository.save(user);
 
     @PostMapping(
             consumes = {MediaType.APPLICATION_XML_VALUE,

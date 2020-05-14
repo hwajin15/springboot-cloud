@@ -4,7 +4,7 @@ server:
 
 spring:
   application:
-    name: users-ws
+    name: account-ws
 
   devtools:
     restart:
@@ -32,13 +32,3 @@ eureka:
   instance:
     instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
 
-gateway:
-  ip: 59.29.224.167
-
-token:
-  expiration_time: 864000000
-  secret: local_spcret
-
-login:
-  url:
-    path: /users/login
