@@ -4,6 +4,9 @@ server:
 spring:
   application:
     name: ConfigServer
+
+  profiles:
+    active: native
   cloud:
     config:
       server:
@@ -12,11 +15,15 @@ spring:
           username: hwajin15
           password: ckdals0218!
           clone-on-start: true
+        native:
+          search-locations: file:///${user.home}/Work/dev
+
   rabbitmq:
     host: localhost
     port: 5672
     username: admin
     password: admin
+
 management:
   endpoints:
     web:
