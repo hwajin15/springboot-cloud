@@ -14,15 +14,21 @@ spring:
       enabled: true
       settings:
         web-allow-others: true
+  jpa:
+    hibernate:
+      ddl-auto: update
       #http://localhost:0000/h2-console
-  rabbitmq:
-    host: localhost
-    port: 5672
-    username: admin
-    password: admin
+#  rabbitmq:
+#    host: localhost
+#    port: 5672
+#    username: admin
+#    password: admin
 
-  datasource:
-    url: jdbc:h2:mem:testdb
+
+
+  #  datasource:
+#    url: jdbc:h2:mem:testdb
+
 
 eureka:
   client:
@@ -32,13 +38,13 @@ eureka:
   instance:
     instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
 
-gateway:
-  ip: 59.29.224.167
-
-token:
-  expiration_time: 864000000
-  secret: local_spcret
-
-login:
-  url:
-    path: /users/login
+#gateway:
+#  ip: 59.29.224.167
+#
+#token:
+#  expiration_time: 864000000
+#  secret: local_spcret
+#
+#login:
+#  url:
+#    path: /users/login
