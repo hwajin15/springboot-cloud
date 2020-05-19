@@ -19,14 +19,14 @@ spring:
           search-locations: file:///${user.home}/Work/dev
 
 
-#  rabbitmq:
-#    host: localhost
-#    port: 5672
-#    username: admin
-#    password: admin
+  rabbitmq:
+    host: localhost
+    port: 25672
+    username: guest
+    password: guest
 
-#management:
-#  endpoints:
-#    web:
-#      exposure:
-#        include: bus-refresh
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh

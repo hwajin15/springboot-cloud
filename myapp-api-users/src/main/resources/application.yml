@@ -1,7 +1,6 @@
 server:
   port: 0
 
-
 spring:
   application:
     name: users-ws
@@ -18,11 +17,11 @@ spring:
     hibernate:
       ddl-auto: update
       #http://localhost:0000/h2-console
-#  rabbitmq:
-#    host: localhost
-#    port: 5672
-#    username: admin
-#    password: admin
+  rabbitmq:
+    host: localhost
+    port: 25672
+    username: guest
+    password: guest
 
 
 
@@ -47,4 +46,10 @@ eureka:
 #
 #login:
 #  url:
+logging:
+  level:
+    com.example.myappapiusers.client: debug
 #    path: /users/login
+feign:
+  hystrix:
+    enabled: true
