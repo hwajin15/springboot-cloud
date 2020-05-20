@@ -11,10 +11,12 @@ spring:
     username: guest
     password: guest
 
+
+
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:8010/eureka/
+      defaultZone: http://test:test@localhost:8010/eureka/
 
 api:
   h2console:
@@ -24,6 +26,8 @@ api:
   login:
     url:
       path: /users-ws/users/login
+
+
 
   registration:
     url:
